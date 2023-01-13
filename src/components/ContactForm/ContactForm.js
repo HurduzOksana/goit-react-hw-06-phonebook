@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contactSlice';
+import style from './ContactForm.module.css';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -21,23 +22,26 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={onSubmit} className="form-inline mt-3 mb-3 d-flex">
+    <form className={style.form} onSubmit={onSubmit}>
+      <label>
+        Name
+        <input
+          type="text"
+          className={style.input}
+          placeholder="Add a name"
+          name={name}
+          onChange={event => setName(event.target.value)}
+        ></input>
+      </label>
       <input
         type="text"
-        className="form-control mb-2 mr-sm-2"
-        placeholder="Add a todo"
-        name={name}
-        onChange={event => setName(event.target.value)}
-      ></input>
-      <input
-        type="text"
-        className="form-control mb-2 mr-sm-2"
-        placeholder="Add a todo"
+        className={style.input}
+        placeholder="Add a number"
         number={number}
         onChange={event => setNumber(event.target.value)}
       ></input>
 
-      <button type="submit" className="btn btn-secondary mb-3">
+      <button type="submit" className={style.btn}>
         Add
       </button>
     </form>

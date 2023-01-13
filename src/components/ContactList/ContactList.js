@@ -1,12 +1,13 @@
 import React from 'react';
 import ContactItem from '../ContactList/ContactItem';
 import { useSelector } from 'react-redux';
+import style from './ContactList.module.css';
 
 const ContactList = () => {
   const contacts = useSelector(state => state.contacts);
 
   return (
-    <ul className="list-group">
+    <ul className={style.list}>
       {contacts.map(contact => (
         <ContactItem
           id={contact.id}

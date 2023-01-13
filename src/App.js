@@ -1,12 +1,10 @@
 import ContactForm from './components/ContactForm/ContactForm';
 import ContactList from './components/ContactList/ContactList';
+import style from './App.module.css';
 
 function App() {
   return (
-    <div
-      className="container"
-      style={{ textAlign: 'center', marginTop: '10px' }}
-    >
+    <div className={style['App']}>
       <h1>Phonebook</h1>
       <ContactForm />
       <ContactList />
