@@ -10,6 +10,7 @@ export const contactSlice = createSlice({
     { id: nanoid(), name: 'Eden Clements', number: '645-17-79' },
     { id: nanoid(), name: 'Annie Copeland', number: '227-91-26' },
   ],
+  filter: '',
 
   reducers: {
     addContact: (state, action) => {
@@ -29,10 +30,15 @@ export const contactSlice = createSlice({
     deleteContact: (state, action) => {
       return state.filter(contact => contact.id !== action.payload.id);
     },
+    filteredUsers: (state, action) => {
+      state.contacts = state.usersContainer.filter(contact =>
+        contact.name.toLowerCase().includes(action.payload)
+      );
+    },
   },
 });
 
-export const { addContact, toggleComplete, deleteContact } =
+export const { addContact, filteredUsers, deleteContact } =
   contactSlice.actions;
 
 export default contactSlice.reducer;
