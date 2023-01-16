@@ -29,6 +29,7 @@ const ContactForm = () => {
           type="text"
           className={style.input}
           placeholder="Add a name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           name={name}
           onChange={event => setName(event.target.value)}
         ></input>
@@ -37,6 +38,7 @@ const ContactForm = () => {
         type="text"
         className={style.input}
         placeholder="Add a number"
+        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         number={number}
         onChange={event => setNumber(event.target.value)}
       ></input>

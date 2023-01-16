@@ -21,24 +21,13 @@ export const contactSlice = createSlice({
       };
       state.push(contact);
     },
-    toggleComplete: (state, action) => {
-      const index = state.findIndex(
-        contact => contact.id === action.payload.id
-      );
-      state[index].completed = action.payload.completed;
-    },
+
     deleteContact: (state, action) => {
       return state.filter(contact => contact.id !== action.payload.id);
-    },
-    filteredUsers: (state, action) => {
-      state.contacts = state.usersContainer.filter(contact =>
-        contact.name.toLowerCase().includes(action.payload)
-      );
     },
   },
 });
 
-export const { addContact, filteredUsers, deleteContact } =
-  contactSlice.actions;
+export const { addContact, deleteContact } = contactSlice.actions;
 
 export default contactSlice.reducer;
