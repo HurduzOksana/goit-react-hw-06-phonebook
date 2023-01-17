@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './Filter.module.css';
+import PropTypes from 'prop-types';
 import { getContactFilter } from '../../redux/filter-selectors';
 import { setContactFilter } from '../../redux/filterSlice';
 import { useDispatch } from 'react-redux';
@@ -24,6 +25,11 @@ const Filter = () => {
       </label>
     </div>
   );
+};
+
+Filter.propTypes = {
+  value: PropTypes.string,
+  filter: PropTypes.func,
 };
 
 export default Filter;

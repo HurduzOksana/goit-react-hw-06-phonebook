@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contactSlice';
 import style from './ContactForm.module.css';
@@ -48,6 +49,10 @@ const ContactForm = () => {
       </button>
     </form>
   );
+};
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func,
 };
 
 export default ContactForm;

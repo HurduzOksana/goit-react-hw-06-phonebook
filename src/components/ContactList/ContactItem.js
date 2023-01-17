@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { deleteContact } from '../../redux/contactSlice';
 import style from './ContactList.module.css';
 
@@ -17,6 +18,17 @@ const ContactItem = ({ id, name, number }) => {
       </button>
     </li>
   );
+};
+
+ContactItem.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  handleDeleteClick: PropTypes.func,
 };
 
 export default ContactItem;
